@@ -1,19 +1,27 @@
-// This is the JavaScript entry file - your code begins here
-// Do not delete or rename this file ********
-
-
-// An example of how you tell webpack to use a CSS file
 import './css/styles.css';
+import { getData } from './apiCalls';
 
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
-import './images/turing-logo.png';
+const userData = await getData('users');
+const sleepData = await getData('sleep');
+const activityData = await getData('activity');
+const hydrationData = await getData('hydration');
 
-// An example of how you tell webpack to use a JS file
-import userData from './data/users';
-console.log("User Data:", userData);
+import { displayUserInfo } from './domUpdates';
+import UserRepo from './UserRepo.js';
+import FluidRepo from './FluidRepo.js';
 
-// Example of one way to import functions from the domUpdates file.  You will delete these examples.
-import { exampleFunction1, exampleFunction2 } from './domUpdates';
 
-exampleFunction1('Travis');
-exampleFunction2('Travis')
+const userRepo = new UserRepo(userData);
+const user = userRepo.getRandomUser();
+const fluidRepo = new FluidRepo(hydrationData);
+
+const AvgFlOuncesPerDay = fluidRepo.getAvgFlOuncesPerDay(user.id);
+const TotalFlOuncesPerDay = fluidRepo.getTotalFlOuncesPerDay(user.id, "2023/03/31");
+const WeeklyFlOuncesPerDay = fluidRepo.getWeeklyFlOunces(user.id, "2023/03/31");
+
+const fluidStats = {AvgFlOuncesPerDay, TotalFlOuncesPerDay ,WeeklyFlOuncesPerDay };
+
+displayUserInfo(user, fluidStats);
+
+
+
