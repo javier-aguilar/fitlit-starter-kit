@@ -1,5 +1,52 @@
 body, html {
-  background-image: linear-gradient(to top, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
-  background-repeat: no-repeat;
-  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Comfortaa', sans-serif;
+  color: #e8e8e9;
+}
+
+#user-info{
+  color: #696a6f;
+  height: 150px;
+  background-color: #191a23;
+  padding-top: 30px;
+  padding-left: 40px;
+  padding-bottom: 30px;
+
+}
+
+#user-info > h1 {
+  color: #e8e8e9;
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+#user-info > p {
+  margin-left: 5px;
+}
+
+#user-steps {
+  text-align: center;
+  color: #191a23;
+  background-color: #ffe20a;
+  width: 30%;
+  height: 200px;
+  padding-top: 100px;
+
+}
+
+#user-container {
+  display: inline-flex;
+  width: 100%;
+}
+
+#user-steps > p {
+  font-weight: bold;
+}
+
+#user-stats {
+  padding-top: 50px;
+  padding-left: 50px;
+  background-color: #222531;
+  width: 70%;
 }
